@@ -35,12 +35,15 @@
     <p id="receipt"></p>
     <script>
         let orders=0;
+        const orderForm = document.getElementById("order");
+        const drinks = orderForm.querySelectorAll('input[name="drink"]');
         function chosenDrink(){
-            for(let i=0; i<order.drink.length;i++){
-        if(order.drink[i].checked) {
-            return order.drink[i].value;
+            for(let i=0; i<drinks.length;i++){
+        if(drinks[i].checked) {
+            return drinks[i].value;
             }
           }
+          return "";
         }
         function showDrink(){
             let drink=chosenDrink();
@@ -57,8 +60,8 @@
          break;
             }
         }
-        for(let i=0;i<order.drink.length;i++){
-            order.drink[i].onclick=showDrink;
+        for(let i=0;i<drinks.length;i++){
+            drinks[i].onclick=showDrink;
         }
 function price(drink){
      switch(drink) {
